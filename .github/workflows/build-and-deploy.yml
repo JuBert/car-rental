@@ -10,10 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: corepack enable
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
       # Pick your own package manager and build script
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm generate --preset github_pages
