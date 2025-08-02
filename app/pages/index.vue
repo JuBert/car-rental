@@ -30,3 +30,4 @@ onMounted(() => resetInput())
         </div>
     </div>
 </template>
+ 
