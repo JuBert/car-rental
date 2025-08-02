@@ -1,0 +1,1 @@
+import{_ as t,x as o,y as s,X as a}from"./DAEFnV0l.js";const c={},n={class:"container mx-auto px-4 py-8"};function r(e,_){return s(),o("div",n,[a(e.$slots,"default")])}const d=t(c,[["render",r]]);export{d as default};
