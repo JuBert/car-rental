@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@config "~/tailwind.config.js";
+/* @config "../../../tailwind.config.js"; */
+
+:root {
+	--primary-100: #CCE6FF;
+	--primary-200: #94C9FF;
+	--primary-300: #2E96FF;
+	--primary-400: #0061C2;
+	--primary-500: #002D59;
+	--primary-600: #00264D;
+	--primary-700: #001F3D;
+	--primary-800: #00172E;
+	--primary-900: #000F1F;
+	--primary-1000: #00080F;
+}
