@@ -24,6 +24,8 @@ export default defineNuxtConfig({
     ],
   },
   runtimeConfig: {
-    public: {}
+    public: {
+      baseUrl: "https://605c94c36d85de00170da8b4.mockapi.io",
+    }
   },
 })
