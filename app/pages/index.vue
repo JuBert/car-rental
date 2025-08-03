@@ -1,33 +1,32 @@
 <script setup lang="ts">
-const router = useRouter()
-const selectedPlace = ref<string | null>(null)
+import type { stationType } from '~/assets/types'
 
-const selectPlace = (place: string | null) => {
-    selectedPlace.value = place
-    if (!place) return
-    navigateToAvailability()
+const runtimeConfig = useRuntimeConfig()
+const selectedStation = useStation()
+
+const apiUrl = ref<string>(`${runtimeConfig.public.baseUrl}/stations`)
+
+const selectStation = (station: stationType) => {
+    selectedStation.value = station
+    navigateToStationPage()
 }
 
-const navigateToAvailability = () => {
-    router.push('/availability')
+const navigateToStationPage = () => {
+    if (selectedStation.value) {
+        const slug = selectedStation.value?.name?.toLowerCase()
+        navigateTo({ path: `/${slug}` })
+    }
 }
-
-const resetInput = () => {
-    selectedPlace.value = null
-}
-
-onMounted(() => resetInput())
-
 </script>
+
 <template>
     <div>
-        <pre class="text-prominent">Where do you want to rent a car?</pre>
-        <div>
-            <GoogleMapsInput
-                place="selectedPlace"
-                @selectPlace="selectPlace($event)"
-            />
-        </div>
+        <p>stations</p>
+        <AutoCompleteInput
+            :api-url="apiUrl"
+            placeholder="Search for a station"
+            error-message="No stations found"
+            @select="selectStation($event)"
+        />
     </div>
 </template>
- 
