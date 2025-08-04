@@ -1,0 +1,1 @@
+import{_ as s,x as t,y as a,z as o,V as c}from"./Dip7JFBX.js";const n={},r={class:"bg-gray-50 min-h-screen px-4 py-8"},_={class:"container mx-auto"};function d(e,l){return a(),t("div",r,[o("div",_,[c(e.$slots,"default")])])}const f=s(n,[["render",d]]);export{f as default};
