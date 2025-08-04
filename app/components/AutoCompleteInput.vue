@@ -83,6 +83,5 @@ const selectStation = (station: stationType) => {
         >
             {{ error }}
         </div>
-        <pre>suggestions {{ suggestions }}</pre>
     </div>
 </template>

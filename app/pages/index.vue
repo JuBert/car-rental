@@ -13,8 +13,8 @@ const selectStation = (station: stationType) => {
 
 const navigateToStationPage = () => {
     if (selectedStation.value) {
-        const slug = selectedStation.value?.name?.toLowerCase()
-        navigateTo({ path: `/${slug}` })
+        const stationId = selectedStation.value?.id
+        navigateTo({ path: `/station/${stationId}` })
     }
 }
 </script>
