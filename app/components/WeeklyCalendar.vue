@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import type { bookingType } from '~/assets/types'
 
 const station = useStation()
@@ -68,22 +67,38 @@ const navigateToBooking = (booking: bookingType, actionType: 'pickup' | 'return'
 
 <template>
     <div class="w-full mx-auto p-4">
-        <!-- nav -->
+        <!-- Calendar navigation -->
         <div class="flex items-center justify-between mb-4">
-            <button @click="prevWeek" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300">←</button>
+            <button @click="prevWeek" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300">
+                ←
+            </button>
             <div class="font-semibold text-lg">
                 Week of {{ weekDates?.[0]?.toDateString() }}
             </div>
-            <button @click="nextWeek" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300">→</button>
+            <button @click="nextWeek" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300">
+                →
+            </button>
         </div>
-        <!-- grid -->
-        <div class="grid grid-cols-7 gap-2">
-            <div v-for="(date, i) in weekDates" :key="i"
-                class="flex flex-col items-center p-2 border rounded min-h-[200px]">
-                <div class="font-medium mb-1">{{ weekDays[i] }}</div>
-                <div class="mb-2">{{ date.getDate() }}/{{ date.getMonth() + 1 }}</div>
-                <div v-if="getBookingsForDate(date, 'pickup').length" class="w-full">
-                    <div class="text-xs font-semibold text-green-600">Pickups:</div>
+        <!-- Calendar grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-2">
+            <div 
+                v-for="(date, i) in weekDates"
+                :key="i"
+                class="flex flex-col items-center p-2 shadow rounded min-h-[200px] bg-white"
+            >
+                <div class="font-medium mb-1">
+                    {{ weekDays[i] }}
+                </div>
+                <div class="mb-2">
+                    {{ date.getDate() }}/{{ date.getMonth() + 1 }}
+                </div>
+                <div 
+                    v-if="getBookingsForDate(date, 'pickup').length" 
+                    class="w-full"
+                >
+                    <div class="text-xs font-semibold text-green-600">
+                        Pickups:
+                    </div>
                     <ul>
                         <li 
                             v-for="booking in getBookingsForDate(date, 'pickup')" 
@@ -95,8 +110,13 @@ const navigateToBooking = (booking: bookingType, actionType: 'pickup' | 'return'
                         </li>
                     </ul>
                 </div>
-                <div v-if="getBookingsForDate(date, 'return').length" class="w-full mt-1">
-                    <div class="text-xs font-semibold text-blue-600">Returns:</div>
+                <div 
+                    v-if="getBookingsForDate(date, 'return').length" 
+                    class="w-full mt-1"
+                >
+                    <div class="text-xs font-semibold text-blue-600">
+                        Returns:
+                    </div>
                     <ul>
                         <li 
                             v-for="booking in getBookingsForDate(date, 'return')" 

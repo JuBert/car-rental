@@ -1,5 +1,7 @@
 <template>
-	<div class="container mx-auto px-4 py-8">
-		<slot/>
+	<div class="bg-gray-50 min-h-screen px-4 py-8">
+		<div class="container mx-auto">
+			<slot />
+		</div>
 	</div>
 </template>

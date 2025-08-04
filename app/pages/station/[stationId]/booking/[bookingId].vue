@@ -6,6 +6,10 @@ const bookingId = route.params.bookingId as string
 const station = useStation()
 const selectedDate = useDate()
 
+const stationName = computed(() => {
+    return station.value ? station.value.name : 'Unknown Station'
+})
+
 const booking = computed<bookingType | null>(() => {
     return station.value?.bookings.find(b => b.id === bookingId) || null
 })
@@ -33,16 +37,16 @@ const goBack = () => {
                 Booking Details
             </h2>
             <div>
-                <span class="font-semibold">Customer: </span>
-                <span>{{ booking.customerName }}</span>
-            </div>
-            <div>
                 <span class="font-semibold">Booking ID: </span>
                 <span>{{ booking.id }}</span>
             </div>
             <div>
-                <span class="font-semibold">Pickup/Return Station ID: </span>
-                <span>{{ booking.pickupReturnStationId }}</span>
+                <span class="font-semibold">Customer: </span>
+                <span>{{ booking.customerName }}</span>
+            </div>
+            <div>
+                <span class="font-semibold">Pickup/Return Station : </span>
+                <span>{{ stationName }}</span>
             </div>
             <div>
                 <span class="font-semibold">Start Date: </span>

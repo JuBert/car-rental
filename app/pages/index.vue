@@ -20,13 +20,18 @@ const navigateToStationPage = () => {
 </script>
 
 <template>
-    <div>
-        <p>stations</p>
-        <AutoCompleteInput
-            :api-url="apiUrl"
-            placeholder="Search for a station"
-            error-message="No stations found"
-            @select="selectStation($event)"
-        />
+    <div class="flex items-center justify-center h-screen">
+        <div class="max-w-md w-full mx-auto p-8 bg-white rounded shadow">
+            <h1 class="text-2xl font-bold text-blue-700 mb-6 text-center">
+                Select the station
+            </h1>
+            <AutoCompleteInput
+                class="w-full"
+                :api-url="apiUrl" 
+                placeholder="Search for a station" 
+                error-message="No stations found"
+                @select="selectStation($event)"
+            />
+        </div>
     </div>
 </template>
