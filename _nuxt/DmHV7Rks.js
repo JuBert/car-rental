@@ -1,1 +1,0 @@
-import{d as n,P as r,x as u,z as e,A as t,O as s,y as l}from"./BmSBCq59.js";import{u as c}from"./DmDwm_jH.js";const g=n({__name:"[...slug]",setup(p){const o=r().params.slug,a=c();return(m,_)=>(l(),u("div",null,[e("pre",null,"slug: "+t(s(o)),1),e("pre",null,"selectedStation "+t(s(a)),1)]))}});export{g as default};
